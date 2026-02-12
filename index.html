@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3, #ffb6c1);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    color:white;
+    text-align:center;
+    overflow:hidden;
+}
+
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* Floating Hearts */
+.heart{
+    position:fixed;
+    bottom:-50px;
+    font-size:24px;
+    animation:floatUp linear infinite;
+    opacity:0.7;
+}
+
+@keyframes floatUp{
+    0%{ transform:translateY(0) scale(1); opacity:0.7;}
+    100%{ transform:translateY(-110vh) scale(1.6); opacity:0;}
+}
+
+/* Soft Blur Lights */
+.blur-light{
+    position: fixed;
+    width: 220px;
+    height: 220px;
+    background: rgba(255,255,255,0.18);
+    filter: blur(90px);
+    border-radius: 50%;
+    animation: floatLight 18s infinite alternate;
+}
+
+@keyframes floatLight{
+    from{ transform: translateY(0) translateX(0);}
+    to{ transform: translateY(-120px) translateX(120px);}
+}
+
+.page{
+    display:none;
+    height:100vh;
+    padding:40px 20px;
+    box-sizing:border-box;
+    animation:fadeIn 1s ease-in-out;
+}
+
+.active{ display:block; }
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+h1{
+    font-family:'Pacifico',cursive;
+    font-size:2.5rem;
+}
+
+p{
+    font-size:1.1rem;
+    max-width:650px;
+    margin:20px auto;
+    line-height:1.6;
+}
+
+button{
+    padding:12px 25px;
+    margin:15px;
+    border:none;
+    border-radius:30px;
+    font-size:1rem;
+    cursor:pointer;
+    background:white;
+    color:#ff4b7d;
+    font-weight:600;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+    background:#ff4b7d;
+    color:white;
+}
+
+/* Teddy Bears */
+.teddy-container{
+    margin-top:10px;
+}
+
+.teddy{
+    width:120px;
+    animation:teddyFloat 3s ease-in-out infinite;
+}
+
+@keyframes teddyFloat{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+
+/* Gallery */
+.gallery{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.gallery img{
+    width:100px;
+    height:100px;
+    object-fit:cover;
+    border-radius:15px;
+    border:2px solid white;
+    transition:0.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 20px rgba(255,255,255,0.6);
+}
+
+/* Poem */
+.poem{
+    white-space:pre-line;
+    font-style:italic;
+    font-size:1.1rem;
+    margin-top:25px;
+}
+
+/* Burst Emojis */
+.burst{
+    position:fixed;
+    font-size:28px;
+    animation:burstAnim 1.4s ease-out forwards;
+}
+
+@keyframes burstAnim{
+    0%{transform:scale(0.5); opacity:1;}
+    100%{transform:translateY(-220px) scale(1.8); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="blur-light" style="top:10%; left:5%;"></div>
+<div class="blur-light" style="bottom:10%; right:5%;"></div>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+    <h1>My Love ❤️</h1>
+    <p>
+        From the day you walked into my life, everything changed beautifully.
+        You became my peace, my happiness, my safest place.
+        Even in silence, even in distance — you are still my heart.
+    </p>
+    <h2>Will you be my Valentine? 💕</h2>
+
+    <button onclick="nextPage(2)">Yes ❤️</button>
+    <button id="noBtn">No 😜</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+    <h1>You Said Yes 😌💖</h1>
+    <p>
+        That smile of yours… I can imagine it already ❤️  
+        Come, let’s walk through our memories for a moment 🥰
+    </p>
+    <button onclick="nextPage(3)">Proceed 💌</button>
+</div>
+
+<!-- QUESTIONS -->
+<div class="page" id="page3">
+    <h1>Question 1 💭</h1>
+    <p>What did I ask you on last year’s surprise meet?</p>
+    <button onclick="nextPage(4)">Next 💖</button>
+</div>
+
+<div class="page" id="page4">
+    <h1>Question 2 💭</h1>
+    <p>Which shop did we go to last Valentine’s Day?</p>
+    <button onclick="nextPage(5)">Next 💖</button>
+</div>
+
+<div class="page" id="page5">
+    <h1>Question 3 💭</h1>
+    <p>What did I give you last Valentine’s Day?</p>
+    <button onclick="nextPage(6)">Finish ❤️</button>
+</div>
+
+<!-- ROMANTIC MESSAGE -->
+<div class="page" id="page6">
+    <h1>No Matter What 💞</h1>
+    <p>
+        No matter what your answers were…  
+        I never measured us by right or wrong.  
+
+        What mattered — and still matters — is **us**.  
+
+        Even if distance writes silence between us,  
+        my heart still whispers your name every day.  
+
+        Some stories pause…  
+        but ours isn’t over.  
+
+        If love is patience — I will wait.  
+        If love is hope — I still believe.  
+
+        And if fate is kind to hearts like ours…  
+        maybe this is not an ending,  
+        just a pause before our forever ❤️  
+
+        Because in my world,  
+        it has always been you…  
+        and it will always be you, my buah ❤️
+    </p>
+
+    <button onclick="goToPoem()">One Last Thing 💌</button>
+</div>
+
+<!-- POEM PAGE -->
+<div class="page" id="page7">
+    <h1>For You… Always 😌</h1>
+
+    <!-- Teddy Bears Hugging -->
+    <div class="teddy-container">
+        <img src="white-teddy.png" class="teddy">
+        <img src="brown-teddy.png" class="teddy">
+    </div>
+
+    <!-- Gallery -->
+    <div class="gallery">
+        <img src="photo1.webp">
+        <img src="photo2.webp">
+        <img src="photo3.webp">
+        <img src="photo4.webp">
+        <img src="photo5.webp">
+    </div>
+
+    <!-- Old Poem -->
+    <div class="poem">
+kaigal koorthu  
+katti anaithu  
+kaalgal inainthu  
+kaadhalai vanainthu  
+kanda kanave  
+un siripaiyum  
+andha mugathaiyum  
+en thool meedhu nee  
+meendum saaika  
+kaathirukiren  
+my buah... ❤️
+    </div>
+
+    <!-- New Poem -->
+    <div class="poem">
+kanne kaaviyame  
+karaiyathe kadinathil  
+anbe agilame  
+udan irupen intha tharunathil  
+mazhaiye mazhazhai kurale  
+meedham ulla naatkalil  
+amudhe aruyire  
+ondraai kalipom kaadhalil  
+malare en maname  
+kaalamellaam un kaal adiyil  
+vairame iniya vaigaiye  
+irunthidave intha vaalkai varam  
+theeyum theemaiyum  
+thaangiduven unakaga  
+vaalkaiyum adhan paathaiyum  
+amaithiduven un udane irunthidave en vaalvu... ❤️
+    </div>
+</div>
+
+<script>
+function nextPage(pageNumber){
+    document.querySelectorAll('.page').forEach(page=>{
+        page.classList.remove('active');
+    });
+    document.getElementById('page'+pageNumber).classList.add('active');
+}
+
+/* Burst Effect */
+function goToPoem(){
+    burstEmojis();
+    nextPage(7);
+}
+
+function burstEmojis(){
+    const emojis = ["💖","💕","💘","😘","💋","😍"];
+    for(let i=0;i<40;i++){
+        const el = document.createElement("div");
+        el.className = "burst";
+        el.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+        el.style.left = Math.random()*100 + "vw";
+        el.style.top = Math.random()*100 + "vh";
+        document.body.appendChild(el);
+        setTimeout(()=>el.remove(),1400);
+    }
+}
+
+/* Floating Dual Hearts */
+setInterval(()=>{
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerText=Math.random()>0.5 ? "💖" : "💕";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(4+Math.random()*4)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),8000);
+},400);
+
+/* Moving NO button 😜 */
+const noBtn=document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover",()=>{
+    const x=Math.random()*window.innerWidth*0.7;
+    const y=Math.random()*window.innerHeight*0.7;
+    noBtn.style.position="absolute";
+    noBtn.style.left=x+"px";
+    noBtn.style.top=y+"px";
+});
+
+noBtn.addEventListener("click",()=>{
+    alert("Oops! YES only 😜❤️");
+});
+</script>
+
+</body>
+</html>
